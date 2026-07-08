@@ -1,5 +1,15 @@
 <h2>Villager Names</h2>
-<p><a href="https://github.com/Serilum/Villager-Names"><img src="https://serilum.com/assets/images/logo/villager-names.png"></a></p><h2>Download</h2>
+<p><a href="https://github.com/Serilum/Villager-Names"><img src="https://serilum.com/assets/images/logo/villager-names.png"></a></p>
+
+Original can be found [here](https://github.com/Serilum/Villager-Names)
+
+### NOTE!
+Due to the way Serilum (Rick South) packages his mods with a private post-step this repo cannot 1:1 reproduce the single multi-loader jars like you find on Modrinth / CurseForge. Instead this repo produces 3 separate JARs that work only on their specific modloaders (Fabric, Forge, NeoForge). You can either find them in the [releases](https://github.com/Florararie/Villager-Names/releases), or build yourself using `./gradlew build`  
+
+Also to note, I mainly only edited this for 26.1.2. I likely wont update or backport for other versions out of laziness. But you are completely free to reference these changes for yourself.
+
+<h2>Download</h2>
+
 <p>You can download Villager Names on CurseForge and Modrinth:</p><p>&nbsp;&nbsp;CurseForge: &nbsp;&nbsp;<a href="https://curseforge.com/minecraft/mc-mods/villager-names">https://curseforge.com/minecraft/mc-mods/villager-names</a><br>&nbsp;&nbsp;Modrinth: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://modrinth.com/mod/villager-names-serilum">https://modrinth.com/mod/villager-names-serilum</a></p>
 <h2>Issue Tracker</h2>
 <p>To keep a better overview of all mods, the issue tracker is located in a separate repository.<br>&nbsp;&nbsp;For issues, ideas, suggestions or anything else, please follow this link:</p>
