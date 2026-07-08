@@ -8,6 +8,20 @@ Due to the way Serilum (Rick South) packages his mods with a private post-step t
 
 Also to note, I mainly only edited this for 26.1.2. I likely wont update or backport for other versions out of laziness. But you are completely free to reference these changes for yourself.
 
+### What I changed
+Adds the option for villagers to have their profession added as a suffix to their custom names (set to True by default).
+
+Examples include
+- Bob the Unemployed
+- Bob the Nitwit
+- Bob the Cleric
+- Bob the Mason
+- Bob the Weaponsmith
+
+.. you get the idea.
+
+This behavior can be toggled off Mod Menu or the Forge/NeoForge Config Menu.
+
 <h2>Download</h2>
 
 <p>You can download Villager Names on CurseForge and Modrinth:</p><p>&nbsp;&nbsp;CurseForge: &nbsp;&nbsp;<a href="https://curseforge.com/minecraft/mc-mods/villager-names">https://curseforge.com/minecraft/mc-mods/villager-names</a><br>&nbsp;&nbsp;Modrinth: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://modrinth.com/mod/villager-names-serilum">https://modrinth.com/mod/villager-names-serilum</a></p>
