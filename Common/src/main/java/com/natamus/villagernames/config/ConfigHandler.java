@@ -19,6 +19,7 @@ public class ConfigHandler extends DuskConfig {
 	@Entry public static boolean switchNameAndProfessionTradeScreen = false;
 	@Entry public static boolean hideMerchantLevelTradeScreen = false;
 	@Entry public static boolean shouldCapitalizeNames = true;
+	@Entry public static boolean includeProfessionInName = true;
 
 	public static void initConfig() {
 		configMetaData.put("useCustomNames", Arrays.asList(
@@ -47,6 +48,9 @@ public class ConfigHandler extends DuskConfig {
 		));
 		configMetaData.put("shouldCapitalizeNames", Arrays.asList(
 			"If enabled, the mod capitalizes each word in the custom name list."
+		));
+		configMetaData.put("includeProfessionInName", Arrays.asList(
+			"If enabled, appends the villager's profession to their name, e.g. 'Bob the Mason'. Updates automatically when a villager gains, loses, or switches jobs. Unemployed villagers are shown as 'the Unemployed' and nitwits as 'the Nitwit'."
 		));
 
 		DuskConfig.init(Reference.NAME, Reference.MOD_ID, ConfigHandler.class);

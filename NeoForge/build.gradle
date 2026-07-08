@@ -66,3 +66,24 @@ sourceSets.configureEach {
         }
     }
 }
+
+// Why must you make me do this Rick South?
+def packageRewriterDir = layout.buildDirectory.dir("rewrittenSrc").get().asFile
+
+tasks.register('rewriteNeoForgeSource', Copy) {
+    from(project(':Common').sourceSets.main.java)
+    from(sourceSets.main.java)
+    into packageRewriterDir
+    
+    filter { String line -> 
+        line.replace("com.natamus.collective", "com.natamus.collective_common_neoforge") 
+    }
+    
+    duplicatesStrategy = DuplicatesStrategy.INCLUDE
+}
+
+tasks.named('compileJava', JavaCompile) {
+    dependsOn rewriteNeoForgeSource
+    source = fileTree(packageRewriterDir)
+    classpath += sourceSets.main.compileClasspath
+}

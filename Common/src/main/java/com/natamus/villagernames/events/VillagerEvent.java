@@ -50,7 +50,7 @@ public class VillagerEvent {
 		
 		String name = Names.getRandomName();
 		if (!name.isEmpty()) {
-			EntityFunctions.nameEntity(entity, name);
+			Util.nameVillager(entity, name);
 
 			try {
 				entity.entityTags().add(Reference.MOD_ID + ".named");
@@ -110,7 +110,13 @@ public class VillagerEvent {
 			profession = Component.literal(StringFunctions.capitalizeEveryWord(rawProfession));
 		}
 
-		Variables.tradedVillagerPair = new Pair<>(villager.getName(), profession);
+		Component displayName = villager.getName();
+		String trackedBaseName = Util.getTrackedBaseName(villager);
+		if (trackedBaseName != null) {
+			displayName = Component.literal(trackedBaseName);
+		}
+
+		Variables.tradedVillagerPair = new Pair<>(displayName, profession);
 		return InteractionResult.PASS;
 	}
 }
