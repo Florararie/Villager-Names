@@ -1,9 +1,7 @@
 package com.natamus.villagernames.events;
 
 import com.mojang.datafixers.util.Pair;
-import com.natamus.collective.functions.EntityFunctions;
 import com.natamus.collective.functions.StringFunctions;
-import com.natamus.villagernames.config.ConfigHandler;
 import com.natamus.villagernames.data.Variables;
 import com.natamus.villagernames.util.Names;
 import com.natamus.villagernames.util.Reference;
@@ -25,21 +23,19 @@ public class VillagerEvent {
 			return;
 		}
 
+		if (Util.isGuard(entity)) {
+			// A guard inherits the name of the villager it replaced, so this also rewrites
+			// "Bob the Unemployed" into "Bob the Guard".
+			Util.nameGuard(entity);
+			return;
+		}
+
 		if (entity.entityTags().contains(Reference.MOD_ID + ".named")) {
 			return;
 		}
 
-		if (!(entity instanceof Villager)) {
-			boolean goname = false;
-			if (ConfigHandler.nameModdedVillagers) {
-				if (EntityFunctions.isModdedVillager(entity)) {
-					goname = true;
-				}
-			}
-			
-			if (!goname) {
-				return;
-			}
+		if (!Util.shouldBeNamed(entity)) {
+			return;
 		}
 
 		if (entity.hasCustomName()) {

@@ -15,6 +15,8 @@ public class ConfigHandler extends DuskConfig {
 	@Entry public static boolean useDefaultMaleNames = true;
 	@Entry public static boolean useBothCustomAndDefaultNames = false;
 	@Entry public static boolean nameModdedVillagers = true;
+	@Entry(registry = "entity_type", filter = "mobs") public static String extraEntityTypesToName = "";
+	@Entry(registry = "entity_type", filter = "mobs") public static String entityTypesToIgnore = "";
 	@Entry public static boolean showProfessionOnTradeScreen = true;
 	@Entry public static boolean switchNameAndProfessionTradeScreen = false;
 	@Entry public static boolean hideMerchantLevelTradeScreen = false;
@@ -37,6 +39,12 @@ public class ConfigHandler extends DuskConfig {
 		configMetaData.put("nameModdedVillagers", Arrays.asList(
 			"If enabled, also gives modded villagers a name. If you've found a 'villager'-entity that isn't named let me know by opening an issue so I can add it in."
 		));
+		configMetaData.put("extraEntityTypesToName", Arrays.asList(
+			"A comma-separated list of entity ids that are also given a name, next to the villagers the mod already names. Use '<modid>:*' to name every entity of a mod."
+		));
+		configMetaData.put("entityTypesToIgnore", Arrays.asList(
+			"A comma-separated list of entity ids that are never given a name by this mod, even when they are a (modded) villager. Use '<modid>:*' to skip every entity of a mod."
+		));
 		configMetaData.put("showProfessionOnTradeScreen", Arrays.asList(
 			"Whether the profession should be added to the villager's trade screen next to their name."
 		));
@@ -50,7 +58,7 @@ public class ConfigHandler extends DuskConfig {
 			"If enabled, the mod capitalizes each word in the custom name list."
 		));
 		configMetaData.put("includeProfessionInName", Arrays.asList(
-			"If enabled, appends the villager's profession to their name, e.g. 'Bob the Mason'. Updates automatically when a villager gains, loses, or switches jobs. Unemployed villagers are shown as 'the Unemployed' and nitwits as 'the Nitwit'."
+			"If enabled, appends the villager's profession to their name, e.g. 'Bob the Mason'. Updates automatically when a villager gains, loses, or switches jobs. Unemployed villagers are shown as 'the Unemployed' and nitwits as 'the Nitwit'. Guards from the Guard Villagers mod are shown as 'the Guard'."
 		));
 
 		DuskConfig.init(Reference.NAME, Reference.MOD_ID, ConfigHandler.class);
